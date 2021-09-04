@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM openjdk:8-jdk-alpine
 ARG USERNAME=prowler
 ARG USERID=34000
 RUN addgroup -g ${USERID} ${USERNAME} && \
