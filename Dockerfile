@@ -1,4 +1,4 @@
-FROM alpine:3.13
+FROM ubuntu
 ARG USERNAME=prowler
 ARG USERID=34000
 RUN addgroup -g ${USERID} ${USERNAME} && \
@@ -7,7 +7,6 @@ RUN addgroup -g ${USERID} ${USERNAME} && \
     pip3 install --upgrade pip && \
     pip3 install awscli boto3 detect-secrets
 RUN chown -R prowler .
-FROM ubuntu
 RUN apt-get update &&\
     apt-get install -y git &&\
     git clone https://github.com/toniblyx/prowler
