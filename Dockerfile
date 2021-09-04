@@ -4,7 +4,7 @@ RUN apt-get update &&\
     git clone https://github.com/toniblyx/prowler /core &&\
     cd core
 FROM builder
-COPY --from=0 /core /prowler
+COPY --from=0 /prowler
 FROM openjdk:8-jdk-alpine
 ARG USERNAME=prowler
 ARG USERID=34000
