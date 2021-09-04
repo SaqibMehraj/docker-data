@@ -14,7 +14,7 @@ RUN addgroup -g ${USERID} ${USERNAME} && \
     pip3 install --upgrade pip && \
     pip3 install awscli boto3 detect-secrets
 COPY . ./
-git clone https://github.com/toniblyx/prowler
+RUN git clone https://github.com/toniblyx/prowler
 WORKDIR /prowler
 RUN chown -R prowler .
 RUN chmod +x ./prowler
