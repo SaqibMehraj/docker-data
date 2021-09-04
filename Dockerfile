@@ -3,10 +3,10 @@ WORKDIR  /package
 RUN apt-get update
 RUN apt-get install -y git
 
+FROM builder 
+RUN git clone https://github.com/toniblyx/prowler
 
 FROM openjdk:8-jdk-alpine
-COPY --from=builder /package  ./
-RUN git clone https://github.com/toniblyx/prowler
 ARG USERNAME=prowler
 ARG USERID=34000
 RUN addgroup -g ${USERID} ${USERNAME} && \
