@@ -15,7 +15,7 @@ RUN addgroup -g ${USERID} ${USERNAME} && \
 FROM builder
 COPY --from=0 /core /
 COPY . ./
-WORKDIR /prowler
+WORKDIR .
 RUN chown -R prowler .
 RUN chmod +x ./prowler
 USER ${USERNAME}
