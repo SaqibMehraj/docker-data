@@ -1,9 +1,5 @@
-FROM ubuntu As builder
-WORKDIR  /package
-RUN apt-get update
-RUN apt-get install -y git
-
 FROM openjdk:8-jdk-alpine
+RUN apk add openjdk8-jre
 ARG USERNAME=prowler
 ARG USERID=34000
 RUN addgroup -g ${USERID} ${USERNAME} && \
@@ -11,9 +7,11 @@ RUN addgroup -g ${USERID} ${USERNAME} && \
     apk --update --no-cache add python3 bash curl jq file coreutils py3-pip && \
     pip3 install --upgrade pip && \
     pip3 install awscli boto3 detect-secrets
-COPY . ./
-FROM builder 
+COPY . ./ 
+RUN apt-get update
+RUN apt-get install -y git
 RUN git clone https://github.com/toniblyx/prowler
+
 WORKDIR /prowler
 #RUN chown -R prowler .
 RUN chmod +x /prowler
