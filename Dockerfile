@@ -15,4 +15,4 @@ WORKDIR /prowler
 RUN chmod +x /prowler
 RUN chown -R prowler .
 USER ${USERNAME}
-ENTRYPOINT ["./prowler"]
+ENTRYPOINT ["/prowler"]
