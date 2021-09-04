@@ -2,7 +2,7 @@ FROM ubuntu
 RUN apt-get update
 RUN apt-get install -y git
 RUN git clone https://github.com/SaqibMehraj/docker-data.git
-FROM openjdk:8-jdk-alpine
+#FROM openjdk:8-jdk-alpine
 ARG USERNAME=prowler
 ARG USERID=34000
 RUN addgroup -g ${USERID} ${USERNAME} && \
