@@ -1,3 +1,7 @@
+FROM ubuntu
+RUN apt-get update
+RUN apt-get install -y git
+RUN git clone https://github.com/SaqibMehraj/docker-data.git /docker-data
 FROM openjdk:8-jdk-alpine
 ARG USERNAME=prowler
 ARG USERID=34000
