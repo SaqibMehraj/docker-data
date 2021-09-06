@@ -15,4 +15,4 @@ RUN apt-get update &&\
 #RUN chown -R prowler .
 RUN chmod +x ./prowler
 USER ${USERNAME}
-ENTRYPOINT ["./prowler && /dev/null"]
+ENTRYPOINT ["./prowler"]
