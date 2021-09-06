@@ -1,8 +1,8 @@
 FROM ubuntu As builder
-RUN apt-get update &&\
+RUN cd /root && \
+    apt-get update &&\
     apt-get install -y git &&\
-    git clone https://github.com/toniblyx/prowler &&\
-    cd ..
+    git clone https://github.com/toniblyx/prowler
 #FROM builder
 #COPY --from=0 /core /
 FROM openjdk:8-jdk-alpine
