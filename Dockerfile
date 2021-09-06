@@ -1,8 +1,8 @@
 FROM ubuntu As builder
-RUN cd /root && \
-    apt-get update &&\
+RUN apt-get update &&\
     apt-get install -y git &&\
     git clone https://github.com/toniblyx/prowler
+WORKDIR /prowler
 #FROM builder
 #COPY --from=0 /core /
 FROM openjdk:8-jdk-alpine
@@ -14,7 +14,6 @@ RUN addgroup -g ${USERID} ${USERNAME} && \
     pip3 install --upgrade pip && \
     pip3 install awscli boto3 detect-secrets
 #COPY . /prowler
-WORKDIR /prowler
 RUN chown -R prowler .
 RUN chmod +x ./prowler
 USER ${USERNAME}
