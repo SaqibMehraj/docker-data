@@ -13,6 +13,6 @@ RUN addgroup -g ${USERID} ${USERNAME} && \
 COPY --from=builder . /prowler
 WORKDIR /prowler
 RUN chown -R prowler .
-RUN chmod +x ./prowler
+RUN chmod +x prowler
 USER ${USERNAME}
 ENTRYPOINT ["./prowler"]
