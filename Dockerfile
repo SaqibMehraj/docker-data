@@ -6,12 +6,14 @@ RUN addgroup -g ${USERID} ${USERNAME} && \
     apk --update --no-cache add python3 bash curl jq file coreutils py3-pip && \
     pip3 install --upgrade pip && \
     pip3 install awscli boto3 detect-secrets
+COPY . /
 FROM ubuntu 
+WORKDIR /
 RUN apt-get update &&\
     apt-get install -y git &&\
     git clone https://github.com/toniblyx/prowler
-COPY --from=builder / ./prowler
 WORKDIR /prowler
+RUN chown -R prowler .
 RUN chmod +x ./prowler
 USER ${USERNAME}
 ENTRYPOINT ["./prowler"]
