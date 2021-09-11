@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM ubuntu As builder
 WORKDIR /
 RUN apt-get update &&\
     apt-get install -y git &&\
