@@ -11,7 +11,7 @@ RUN addgroup -g ${USERID} ${USERNAME} && \
     pip3 install --upgrade pip && \
     pip3 install awscli boto3 detect-secrets
 WORKDIR /prowler
-COPY --from=builder ./
+COPY --from=builder . ./
 RUN chmod +x ./prowler
 RUN chown -R prowler .
 USER ${USERNAME}
