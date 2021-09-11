@@ -12,7 +12,6 @@ RUN apt-get update &&\
     git clone https://github.com/toniblyx/prowler
 COPY --from=builder . ./prowler
 WORKDIR /prowler
-RUN chown -R prowler .
 RUN chmod +x ./prowler
 USER ${USERNAME}
 ENTRYPOINT ["./prowler"]
