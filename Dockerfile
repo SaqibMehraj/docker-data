@@ -1,9 +1,9 @@
-FROM ubuntu As builder
+FROM ubuntu 
 WORKDIR /
 RUN apt-get update &&\
     apt-get install -y git &&\
     git clone https://github.com/toniblyx/prowler
-FROM openjdk:8-jdk-alpine
+FROM openjdk:8-jdk-alpine As builder
 WORKDIR /
 ARG USERNAME=prowler
 ARG USERID=34000
