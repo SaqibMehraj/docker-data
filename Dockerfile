@@ -1,6 +1,6 @@
 FROM ubuntu As builder
 WORKDIR /
-RUN mkdir prowler
+RUN mkdir prowler &&\
     apt-get update &&\
     apt-get install -y git &&\
     git clone https://github.com/toniblyx/prowler /prowler
