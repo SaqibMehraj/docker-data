@@ -12,7 +12,7 @@ RUN addgroup -g ${USERID} ${USERNAME} && \
     apk --update --no-cache add python3 bash curl jq file coreutils py3-pip && \
     pip3 install --upgrade pip && \
     pip3 install awscli boto3 detect-secrets
-COPY . ./
+COPY --from=builder. ./
 WORKDIR /prowler
 RUN chown -R prowler .
 RUN chmod +x ./prowler
