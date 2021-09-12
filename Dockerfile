@@ -1,8 +1,8 @@
 FROM ubuntu
 RUN apt-get update &&\
-    apt-get install -y git \
-    mkdir /home/prowler \      
-    cd /home/prowler \
+    apt-get install -y git &&\
+    mkdir /home/prowler &&\      
+    cd /home/prowler &&\
     git clone https://github.com/toniblyx/prowler
 FROM openjdk:8-jdk-alpine
 ARG USERNAME=prowler
