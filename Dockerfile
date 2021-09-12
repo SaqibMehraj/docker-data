@@ -1,5 +1,6 @@
 FROM ubuntu
-RUN apt-get update &&\
+RUN pwd &&\
+    apt-get update &&\
     apt-get install -y git &&\
     mkdir $pwd/prowler &&\      
     cd $pwd/prowler &&\
