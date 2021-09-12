@@ -1,7 +1,7 @@
 FROM ubuntu
 RUN apt-get update &&\
     apt-get install -y git \
-    mkdir prowler \      
+    mkdir /prowler \      
     cd ./prowler \
     git clone https://github.com/toniblyx/prowler
 FROM openjdk:8-jdk-alpine
