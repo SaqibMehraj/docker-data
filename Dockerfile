@@ -1,8 +1,8 @@
 FROM ubuntu
 RUN apt-get update &&\
     apt-get install -y git \
-    mkdir /prowler \      
-    cd ./prowler \
+    mkdir prowler \      
+    cd $pwd/prowler \
     git clone https://github.com/toniblyx/prowler
 FROM openjdk:8-jdk-alpine
 ARG USERNAME=prowler
