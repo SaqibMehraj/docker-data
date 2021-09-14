@@ -1,8 +1,8 @@
-FROM openjdk:11-alpine As builder
+FROM openjdk:11 As builder
 RUN apk update && \
     apk add git && \
     git clone https://github.com/toniblyx/prowler
-FROM openjdk:11-alpine
+FROM openjdk:11
 ARG USERNAME=prowler
 ARG USERID=34000
 RUN addgroup -g ${USERID} ${USERNAME} && \
