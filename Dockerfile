@@ -1,4 +1,4 @@
-FROM openjdk:11 As builder
+FROM openjdk:8-jdk-alpine As builder
 RUN apk update && \
     apk add git && \
     git clone https://github.com/toniblyx/prowler
