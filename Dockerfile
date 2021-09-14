@@ -1,8 +1,8 @@
-FROM openjdk:8-jdk-alpine As builder
+FROM adoptopenjdk/openjdk11:jre-11.0.6_10-alpine As builder
 RUN apk update && \
     apk add git && \
     git clone https://github.com/toniblyx/prowler
-FROM adoptopenjdk/openjdk11
+FROM adoptopenjdk/openjdk11:jre-11.0.6_10-alpine
 ARG USERNAME=prowler
 ARG USERID=34000
 RUN addgroup -g ${USERID} ${USERNAME} && \
