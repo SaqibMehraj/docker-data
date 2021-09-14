@@ -5,7 +5,7 @@ RUN apk update && \
 FROM openjdk:8-jdk-alpine
 ARG USERNAME=prowler
 ARG USERID=34000
-    addgroup -g ${USERID} ${USERNAME} && \
+RUN addgroup -g ${USERID} ${USERNAME} && \
     adduser -s /bin/sh -G ${USERNAME} -D -u ${USERID} ${USERNAME} && \
     apk --update --no-cache add python3 bash curl jq file coreutils py3-pip && \
     pip3 install --upgrade pip && \
